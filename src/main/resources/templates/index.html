@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Projeto - Senha</title>
+
+<style>
+	.index{
+		border: 2px solid black;
+	
+	}
+	table {
+		border-collapse: collapse;
+	}
+	table, th, td {
+		border: 1px solid black;
+	}
+
+</style>
+
+</head>
+<body>
+	<div class="index">
+		<div class="gerar">
+			<label>SENHA</label><hr>
+			<form action="gerarSenha" method="post">
+				<input type="radio" id="P" name="tipo" value="P" required>
+				<label>Preferencial</label>
+			
+				<input type="radio" id="N" name="tipo" value="N">
+				<label>Normal</label><br>
+			
+				<button type="submit">Gerar</button><br><hr>
+			</form>
+		</div>
+		<div class="listar">
+			<label>Senha chamada</label>
+			
+			<table>	
+				<thead>
+					<tr>
+						<th>Senha</th>
+						<th>Tipo</th>
+					</tr>
+				</thead>
+				<tbody id="myTable">
+					<tr th:each=" senha : ${senha}">
+						<td><span th:text="${senha.idSenha}"></span></td>
+						<td><span th:text="${senha.tipo}"></span></td>
+					</tr>
+				</tbody>
+			</table><hr>
+		</div>
+		
+		<div class="chamar">
+		
+			<table>	
+				<thead>
+					<tr>
+						<th>Senha</th>
+						<th>Tipo</th>
+					</tr>
+				</thead>
+				<tbody id="myTable">
+					<tr th:each=" senha : ${senhaChamar}">
+						<td><span th:text="${senha.idSenha}"></span></td>
+						<td><span th:text="${senha.tipo}"></span></td>
+						<td><a class="btn btn-danger" th:href="${(#mvc.url('SC#chamarSenha').arg(0, senha.idSenha)).build()}">Chamar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
