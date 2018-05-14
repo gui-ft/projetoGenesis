@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Projeto - Senha</title>
+<title>Projeto - Gerente</title>
 
 <style>
 	.index{
@@ -22,18 +22,6 @@
 </head>
 <body>
 	<div class="index">
-		<div class="gerar">
-			<label>SENHA</label><hr>
-			<form action="gerarSenha" method="post">
-				<input type="radio" name="preferencial" value="true" required>
-				<label>Preferencial</label>
-			
-				<input type="radio" name="preferencial" value="false">
-				<label>Normal</label><br>
-			
-				<button type="submit">Gerar</button><br><hr>
-			</form>
-		</div>
 		<div class="listar">
 			<label>Última Senha chamada</label>
 			
@@ -51,6 +39,26 @@
 					</tr>
 				</tbody>
 			</table><hr>
+		</div>
+		<div class="chamar">
+			
+			<label>Fila de Senhas</label>
+			<table>	
+				<thead>
+					<tr>
+						<th>Senha</th>
+						<th>Tipo</th>
+					</tr>
+				</thead>
+				<tbody id="myTable">
+					<tr th:each=" senha : ${senhaChamar}">
+						<td><span th:text="${senha.idSenha}"></span></td>
+						<td><span th:text="${senha.preferencial}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="chamarSenha">Próxima Senha</a>
+			<a href="reiniciar">Reiniciar Senhas</a>
 		</div>
 	</div>
 </body>
