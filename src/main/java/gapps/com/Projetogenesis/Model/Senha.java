@@ -11,7 +11,7 @@ public class Senha {
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Long idSenha;
-	private boolean preferencial;
+	private String tipo;
 	private boolean status;
 	
 	public Long getIdSenha() {
@@ -20,11 +20,11 @@ public class Senha {
 	public void setIdSenha(Long idSenha) {
 		this.idSenha = idSenha;
 	}
-	public boolean getPreferencial() {
-		return preferencial;
+	public String getTipo(){
+		return tipo;
 	}
-	public void setPreferencial(boolean preferencial) {
-		this.preferencial = preferencial;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 	public boolean getStatus() {

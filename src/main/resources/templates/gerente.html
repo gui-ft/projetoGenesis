@@ -7,8 +7,10 @@
 
 <style>
 	.index{
-		border: 2px solid black;
-	
+		border: 2px solid blue;
+	}
+	.chamar{
+		border: 1px solid red;
 	}
 	table {
 		border-collapse: collapse;
@@ -35,12 +37,12 @@
 				<tbody id="myTable">
 					<tr th:each=" senha : ${ultimaSenhaChamada}">
 						<td><span th:text="${senha.idSenha}"></span></td>
-						<td><span th:text="${senha.preferencial}"></span></td>
+						<td><span th:text="${senha.tipo}"></span></td>
 					</tr>
 				</tbody>
 			</table><hr>
 		</div>
-		<div class="chamar">
+		<div>
 			
 			<label>Fila de Senhas</label>
 			<table>	
@@ -53,12 +55,13 @@
 				<tbody id="myTable">
 					<tr th:each=" senha : ${senhaChamar}">
 						<td><span th:text="${senha.idSenha}"></span></td>
-						<td><span th:text="${senha.preferencial}"></span></td>
+						<td><span th:text="${senha.tipo}"></span></td>
 					</tr>
 				</tbody>
-			</table>
-			<a href="chamarSenha">Próxima Senha</a>
-			<a href="reiniciar">Reiniciar Senhas</a>
+			</table><br>
+			
+			<a href="chamarSenha"><button>Próxima Senha</button></a>
+			<a href="reiniciar"><button>Reiniciar Senhas</button></a>
 		</div>
 	</div>
 </body>

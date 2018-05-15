@@ -7,7 +7,7 @@
 
 <style>
 	.index{
-		border: 2px solid black;
+		border: 2px solid blue;
 	
 	}
 	table {
@@ -23,17 +23,18 @@
 <body>
 	<div class="index">
 		<div class="gerar">
-			<label>SENHA</label><hr>
+			<label>Retire sua Senha</label><hr>
 			<form action="gerarSenha" method="post">
-				<input type="radio" name="preferencial" value="true" required>
+				<input type="radio" name="tipo" value="P" required>
 				<label>Preferencial</label>
 			
-				<input type="radio" name="preferencial" value="false">
+				<input type="radio" name="tipo" value="N">
 				<label>Normal</label><br>
 			
 				<button type="submit">Gerar</button><br><hr>
 			</form>
 		</div>
+		
 		<div class="listar">
 			<label>Última Senha chamada</label>
 			
@@ -47,10 +48,10 @@
 				<tbody id="myTable">
 					<tr th:each=" senha : ${ultimaSenhaChamada}">
 						<td><span th:text="${senha.idSenha}"></span></td>
-						<td><span th:text="${senha.preferencial}"></span></td>
+						<td><span th:text="${senha.tipo}"></span></td>
 					</tr>
 				</tbody>
-			</table><hr>
+			</table>
 		</div>
 	</div>
 </body>
